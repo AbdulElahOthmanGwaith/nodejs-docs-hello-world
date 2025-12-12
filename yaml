@@ -1,0 +1,39 @@
+name: Deploy with Armory CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # تثبيت Node (اختياري — احذفه إذا لم تحتاجه)
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # تثبيت الحزم (اختياري)
+      - name: Install dependencies
+        run: npm install
+
+      # تشغيل عملية النشر عبر Armory
+      - name: Armory Continuous Deployment
+        uses: armory/cli-deploy-action@v1.0.0
+        with:
+          filePath: deploy/config.yaml   # ← ضع مسار ملف إعدادات Armory هنا
+          appName: my-app                # ← اسم التطبيق في Armory
+          addContext: ""                 # ← اختياري
+
+          clientId: ${{ secrets.ARMORY_CLIENT_ID }}
+          clientSecret: ${{ secrets.ARMORY_CLIENT_SECRET }}
+
+          audience: https://api.cloud.armory.io
+          tokenIssuerUrl: https://auth.cloud.armory.io/oauth
+          deployHostUrl: https://api.cloud.armory.io

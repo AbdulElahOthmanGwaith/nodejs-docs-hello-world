@@ -1,25 +1,44 @@
 {
-    "name": "app-service-hello-world",
-    "description": "Simple Hello World Node.js sample for Azure App Service",
-    "version": "0.0.1",
-    "private": true,
-    "license": "MIT",
-    "author": "Microsoft",
-    "scripts": {
-        "start": "node index.js",
-        "lint": "eslint",
-        "format": "prettier --single-quote --write *.js"    
-    },
-    "devDependencies": {
-        "eslint": "^7.5.0",
-        "prettier": "^2.0.5"
-      },
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "cors": "^2.8.5",
-        "express": "^4.17.1"
-      },
-      "engines": {
-        "node": ">=10"
-      }
+  "name": "connecthub",
+  "version": "1.0.0",
+  "description": "Advanced social media platform with innovative voice features and enhanced security",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "build": "echo 'No build step required for pure HTML/CSS/JS'",
+    "test": "echo 'No tests specified'",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "social-media",
+    "web-app",
+    "voice-comments",
+    "multilingual",
+    "javascript",
+    "html5",
+    "css3"
+  ],
+  "author": "MiniMax Agent",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/connecthub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/connecthub/issues"
+  },
+  "homepage": "https://yourusername.github.io/connecthub",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "gh-pages": "^6.1.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
 }
