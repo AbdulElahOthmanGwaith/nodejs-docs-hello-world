@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="ConnectHub - منصة التواصل الاجتماعي المتقدمة التي تجمع بين الأصالة والابتكار لتوفر تجربة تواصل فريدة ومميزة">
+    <meta name="keywords" content="منصة تواصل اجتماعي, ConnectHub, أصدقاء, دردشة, مشاركة, صوت, أمان, خصوصية">
+    <meta name="author" content="MiniMax Agent">
+    
+    <!-- تحسينات الأمان -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- تحسينات SEO -->
+    <meta property="og:title" content="ConnectHub - منصة التواصل الاجتماعي المتقدمة">
+    <meta property="og:description" content="منصة تواصل اجتماعي حديثة ومبتكرة مع ميزات صوتية متطورة ونظام أمان متقدم">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 24 24'%3E%3Cpath fill='%23667eea' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E">
+    <meta property="og:url" content="https://connecthub.example.com">
+    <meta property="og:site_name" content="ConnectHub">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ConnectHub - منصة التواصل الاجتماعي المتقدمة">
+    <meta name="twitter:description" content="منصة تواصل اجتماعي حديثة ومبتكرة مع ميزات صوتية متطورة">
+    
+    <!-- تحسينات الأداء -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="enhanced-styles.css" as="style">
+    <link rel="preload" href="enhanced-features.js" as="script">
+    
+    <!-- Font Loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Enhanced Styles -->
+    <link rel="stylesheet" href="enhanced-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22ConnectHub%22%2C%22short_name%22%3A%22ConnectHub%22%2C%22description%22%3A%22منصة%20تواصل%20اجتماعي%20متقدمة%22%2C%22start_url%22%3A%22/%22%2C%22display%22%3A%22standalone%22%2C%22theme_color%22%3A%22%23667eea%22%2C%22background_color%22%3A%22%23f0f2f5%22%2C%22orientation%22%3A%22portrait-primary%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='192'%20height='192'%20viewBox='0%200%2024%2024'%3E%3Cpath%20fill='%23667eea'%20d='M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm-2%2015l-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208l-9%209z'/%3E%3C/svg%3E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image/svg+xml%22%7D%5D%7D">
+    
+    <!-- تحسينات إمكانية الوصول -->
+    <meta name="color-scheme" content="light dark">
+    <style>
+        /* تحميل سريع للوضع المظلم */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0f1419;
+                --bg-secondary: #1a1f2e;
+                --bg-tertiary: #242936;
+                --text-primary: #ffffff;
+                --text-secondary: #b7bcc7;
+                --text-muted: #8b93a7;
+                --border-color: #2d3748;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- مؤشر التحميل -->
+    <div id="loadingIndicator" class="loading-indicator" aria-live="polite" aria-label="جاري التحميل">
+        <div class="loading-spinner"></div>
+        <span>جاري تحميل ConnectHub...</span>
+    </div>
+
+    <!-- صفحة تسجيل الدخول المحسنة -->
+    <div id="loginPage" class="login-container" role="main" aria-label="صفحة تسجيل الدخول">
+        <div class="login-box fade-in" role="form" aria-labelledby="loginTitle">
+            <div class="login-header">
+                <div class="logo-container">
+                    <div class="logo-icon" aria-hidden="true">🌐</div>
+                    <h1 id="loginTitle">ConnectHub</h1>
+                </div>
+                <p data-translate="login_subtitle">منصة التواصل الاجتماعي المتقدمة التي تجمع بين الأصالة والابتكار لتوفر تجربة تواصل فريدة ومميزة.</p>
+            </div>
+            
+            <div class="login-form" role="form">
+                <div class="form-group">
+                    <label for="loginEmail" class="sr-only">البريد الإلكتروني أو رقم الهاتف</label>
+                    <input type="text" 
+                           id="loginEmail" 
+                           data-translate-placeholder="email_placeholder" 
+                           placeholder="البريد الإلكتروني أو رقم الهاتف"
+                           autocomplete="username"
+                           required
+                           aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-help sr-only">أدخل بريدك الإلكتروني أو رقم هاتفك</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword" class="sr-only">كلمة المرور</label>
+                    <input type="password" 
+                           id="loginPassword" 
+                           data-translate-placeholder="password_placeholder" 
+                           placeholder="كلمة المرور"
+                           autocomplete="current-password"
+                           required
+                           aria-describedby="passwordHelp">
+                    <div id="passwordHelp" class="form-help sr-only">أدخل كلمة المرور الخاصة بك</div>
+                </div>
+                
+                <button onclick="login()" 
+                        class="login-btn" 
+                        data-translate="login_btn"
+                        id="loginButton"
+                        aria-describedby="loginStatus">
+                    تسجيل الدخول
+                </button>
+                <div id="loginStatus" class="sr-only" aria-live="polite"></div>
+                
+                <a href="#" 
+                   class="forgot-password" 
+                   data-translate="forgot_password"
+                   role="button"
+                   aria-label="نسيت كلمة المرور">
+                    هل نسيت كلمة المرور؟
+                </a>
+                
+                <hr class="divider" aria-hidden="true">
+                
+                <button onclick="showSignup()" 
+                        class="create-account-btn" 
+                        data-translate="create_account"
+                        role="button"
+                        aria-describedby="signupHelp">
+                    إنشاء حساب جديد
+                </button>
+                <div id="signupHelp" class="form-help sr-only">إنشاء حساب جديد مجاني</div>
+                
+                <!-- مبدل اللغة المحسن -->
+                <div class="language-switcher" role="radiogroup" aria-label="اختيار اللغة">
+                    <button onclick="switchLanguage('ar')" 
+                            class="lang-btn active" 
+                            id="langAr"
+                            role="radio"
+                            aria-checked="true"
+                            aria-label="العربية">
+                        العربية
+                    </button>
+                    <button onclick="switchLanguage('en')" 
+                            class="lang-btn" 
+                            id="langEn"
+                            role="radio"
+                            aria-checked="false"
+                            aria-label="English">
+                        English
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة التسجيل المحسنة -->
+    <div id="signupPage" class="signup-container" style="display: none;" role="main" aria-label="صفحة إنشاء حساب جديد">
+        <div class="signup-box fade-in" role="form" aria-labelledby="signupTitle">
+            <h2 id="signupTitle" data-translate="create_new_account">إنشاء حساب جديد</h2>
+            <p data-translate="quick_easy">سريع ومجاني.</p>
+            
+            <div class="signup-form" role="form">
+                <div class="name-fields">
+                    <div class="form-group">
+                        <label for="firstName" class="sr-only">الاسم الأول</label>
+                        <input type="text" 
+                               id="firstName" 
+                               data-translate-placeholder="first_name" 
+                               placeholder="الاسم الأول"
+                               autocomplete="given-name"
+                               required
+                               aria-describedby="firstNameHelp">
+                        <div id="firstNameHelp" class="form-help sr-only">أدخل اسمك الأول</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName" class="sr-only">اسم العائلة</label>
+                        <input type="text" 
+                               id="lastName" 
+                               data-translate-placeholder="last_name" 
+                               placeholder="اسم العائلة"
+                               autocomplete="family-name"
+                               required
+                               aria-describedby="lastNameHelp">
+                        <div id="lastNameHelp" class="form-help sr-only">أدخل اسم عائلتك</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail" class="sr-only">البريد الإلكتروني</label>
+                    <input type="email" 
+                           id="signupEmail" 
+                           data-translate-placeholder="email" 
+                           placeholder="البريد الإلكتروني"
+                           autocomplete="email"
+                           required
+                           aria-describedby="signupEmailHelp">
+                    <div id="signupEmailHelp" class="form-help sr-only">أدخل بريدك الإلكتروني الصحيح</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword" class="sr-only">كلمة مرور جديدة</label>
+                    <input type="password" 
+                           id="signupPassword" 
+                           data-translate-placeholder="new_password" 
+                           placeholder="كلمة مرور جديدة"
+                           autocomplete="new-password"
+                           required
+                           aria-describedby="passwordStrength">
+                    <div id="passwordStrength" class="password-strength sr-only" aria-live="polite"></div>
+                </div>
+                
+                <button onclick="signup()" 
+                        class="signup-btn" 
+                        data-translate="register"
+                        id="signupButton"
+                        aria-describedby="signupStatus">
+                    التسجيل
+                </button>
+                <div id="signupStatus" class="sr-only" aria-live="polite"></div>
+                
+                <button onclick="showLogin()" 
+                        class="back-login-btn" 
+                        data-translate="back_to_login"
+                        role="button"
+                        aria-label="العودة إلى صفحة تسجيل الدخول">
+                    العودة لتسجيل الدخول
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- الصفحة الرئيسية المحسنة -->
+    <div id="mainPage" style="display: none;" role="main" aria-label="الصفحة الرئيسية">
+        <!-- شريط التنقل المحسن -->
+        <nav class="navbar" role="navigation" aria-label="شريط التنقل الرئيسي">
+            <div class="nav-left">
+                <div class="logo" role="banner">
+                    <span class="logo-icon" aria-hidden="true">🌐</span>
+                    <span class="logo-text">ConnectHub</span>
+                </div>
+                
+                <div class="search-box" role="search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input type="text" 
+                           data-translate-placeholder="search_placeholder" 
+                           placeholder="البحث في ConnectHub"
+                           aria-label="البحث في ConnectHub"
+                           id="globalSearch">
+                </div>
+            </div>
+            
+            <div class="nav-center" role="tablist" aria-label="التنقل الرئيسي">
+                <div class="nav-icon active" 
+                     onclick="showMainContent()" 
+                     role="tab" 
+                     aria-selected="true"
+                     aria-label="الصفحة الرئيسية"
+                     tabindex="0">
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                </div>
+                
+                <div class="nav-icon" 
+                     onclick="showFriendsPage()" 
+                     role="tab" 
+                     aria-selected="false"
+                     aria-label="الأصدقاء"
+                     tabindex="0">
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                    <span id="friendRequestsCount" 
+                          class="notification-badge" 
+                          style="display: none;" 
+                          aria-live="polite"
+                          aria-label="طلبات الصداقة">0</span>
+                </div>
+                
+                <div class="nav-icon" 
+                     role="tab" 
+                     aria-selected="false"
+                     aria-label="الفيديو المباشر"
+                     tabindex="0"
+                     onclick="showComingSoon('فيديو مباشر')">
+                    <i class="fas fa-video" aria-hidden="true"></i>
+                </div>
+                
+                <div class="nav-icon" 
+                     role="tab" 
+                     aria-selected="false"
+                     aria-label="المتجر"
+                     tabindex="0"
+                     onclick="showComingSoon('المتجر')">
+                    <i class="fas fa-store" aria-hidden="true"></i>
+                </div>
+                
+                <div class="nav-icon" 
+                     role="tab" 
+                     aria-selected="false"
+                     aria-label="المجموعات"
+                     tabindex="0"
+                     onclick="showComingSoon('المجموعات')">
+                    <i class="fas fa-user-friends" aria-hidden="true"></i>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <div class="nav-icon" 
+                     onclick="switchLanguage(currentLanguage === 'ar' ? 'en' : 'ar')"
+                     role="button"
+                     aria-label="تبديل اللغة"
+                     title="تبديل اللغة"
+                     tabindex="0">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span id="currentLangDisplay" aria-hidden="true">عربي</span>
+                </div>
+                
+                <div class="nav-icon" 
+                     onclick="showNotifications()" 
+                     role="button"
+                     aria-label="الإشعارات"
+                     tabindex="0">
+                    <i class="fas fa-bell" aria-hidden="true"></i>
+                    <span id="notificationCount" 
+                          class="notification-badge" 
+                          style="display: none;" 
+                          aria-live="polite"
+                          aria-label="عدد الإشعارات">0</span>
+                </div>
+                
+                <div class="profile-menu" 
+                     onclick="showUserMenu()" 
+                     role="button"
+                     aria-label="قائمة المستخدم"
+                     tabindex="0">
+                    <img src="https://via.placeholder.com/40x40" 
+                         alt="الملف الشخصي" 
+                         id="profileImage"
+                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' viewBox=\'0 0 24 24\'%3E%3Cpath fill=\'%23667eea\' d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/%3E%3C/svg%3E'">
+                </div>
+            </div>
+        </nav>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content" role="main">
+            <!-- المحتوى الرئيسي (المنشورات) -->
+            <div id="mainContent" class="content-section" aria-label="المنشورات">
+                <!-- منطقة إنشاء منشور -->
+                <div class="create-post-section">
+                    <div class="create-post-container">
+                        <div class="user-avatar">
+                            <img src="https://via.placeholder.com/50x50" 
+                                 alt="الصورة الشخصية" 
+                                 id="userAvatar"
+                                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 24 24\'%3E%3Cpath fill=\'%23667eea\' d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/%3E%3C/svg%3E'">
+                        </div>
+                        
+                        <div class="post-input-container">
+                            <textarea 
+                                id="postInput" 
+                                data-translate-placeholder="whats_on_mind" 
+                                placeholder="ما الذي تفكر فيه؟"
+                                aria-label="إنشاء منشور جديد"
+                                rows="1"
+                                maxlength="500"></textarea>
+                            
+                            <div class="post-actions">
+                                <button class="action-btn" 
+                                        onclick="toggleVoiceRecording()"
+                                        aria-label="تعليق صوتي">
+                                    <i class="fas fa-microphone" aria-hidden="true"></i>
+                                    <span>صوت</span>
+                                </button>
+                                
+                                <button class="action-btn" 
+                                        onclick="showImageUpload()"
+                                        aria-label="رفع صورة">
+                                    <i class="fas fa-image" aria-hidden="true"></i>
+                                    <span>صورة</span>
+                                </button>
+                                
+                                <button class="action-btn" 
+                                        onclick="showFeelingSelector()"
+                                        aria-label="اختيار المشاعر">
+                                    <i class="fas fa-smile" aria-hidden="true"></i>
+                                    <span>مشاعر</span>
+                                </button>
+                                
+                                <button class="action-btn" 
+                                        onclick="showLocationSelector()"
+                                        aria-label="تحديد الموقع">
+                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                    <span>موقع</span>
+                                </button>
+                            </div>
+                            
+                            <div class="post-footer">
+                                <button onclick="createPost()" 
+                                        class="post-btn" 
+                                        data-translate="create_post"
+                                        aria-label="نشر المنشور">
+                                    نشر
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قائمة المنشورات -->
+                <div id="postsContainer" class="posts-container" role="feed" aria-label="المنشورات">
+                    <!-- المنشورات ستظهر هنا -->
+                </div>
+            </div>
+
+            <!-- صفحة الأصدقاء -->
+            <div id="friendsPage" class="content-section" style="display: none;" aria-label="صفحة الأصدقاء">
+                <div class="friends-header">
+                    <h2 data-translate="friends_management">إدارة الأصدقاء</h2>
+                    <div class="friends-stats" id="friendsStats" aria-live="polite">
+                        <!-- إحصائيات الأصدقاء ستظهر هنا -->
+                    </div>
+                </div>
+                
+                <div class="friends-content">
+                    <!-- طلبات الصداقة -->
+                    <div class="friends-section">
+                        <h3 data-translate="friend_requests">طلبات الصداقة</h3>
+                        <div id="friendRequestsContainer" class="friends-list" role="list">
+                            <!-- طلبات الصداقة ستظهر هنا -->
+                        </div>
+                    </div>
+                    
+                    <!-- قائمة الأصدقاء -->
+                    <div class="friends-section">
+                        <h3 data-translate="friends_list">قائمة الأصدقاء</h3>
+                        <div id="friendsListContainer" class="friends-list" role="list">
+                            <!-- قائمة الأصدقاء ستظهر هنا -->
+                        </div>
+                    </div>
+                    
+                    <!-- اقتراحات الأصدقاء -->
+                    <div class="friends-section">
+                        <h3 data-translate="friend_suggestions">اقتراحات الأصدقاء</h3>
+                        <div id="suggestedFriendsContainer" class="friends-list" role="list">
+                            <!-- اقتراحات الأصدقاء ستظهر هنا -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صفحة الإشعارات -->
+            <div id="notificationsPage" class="content-section" style="display: none;" aria-label="صفحة الإشعارات">
+                <div class="notifications-header">
+                    <h2 data-translate="notifications">الإشعارات</h2>
+                    <button onclick="markAllAsRead()" 
+                            class="mark-read-btn"
+                            aria-label="تعليم الكل كمقروء">
+                        تعليم الكل كمقروء
+                    </button>
+                </div>
+                
+                <div id="notificationsContainer" class="notifications-list" role="list">
+                    <!-- الإشعارات ستظهر هنا -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- النوافذ المنبثقة المحسنة -->
+    <!-- نافذة وضع قريباً -->
+    <div id="comingSoonModal" class="modal" style="display: none;" role="dialog" aria-labelledby="comingSoonTitle" aria-modal="true">
+        <div class="modal-content slide-in-right">
+            <div class="modal-header">
+                <h3 id="comingSoonTitle">ميزة قادمة قريباً</h3>
+                <button onclick="closeModal('comingSoonModal')" 
+                        class="modal-close"
+                        aria-label="إغلاق النافذة">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="coming-soon-icon">🚀</div>
+                <p id="comingSoonMessage">هذه الميزة ستكون متاحة قريباً!</p>
+                <p>نعمل بجد على إضافة المزيد من الميزات الرائعة لـ ConnectHub.</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('comingSoonModal')" 
+                        class="modal-btn primary"
+                        aria-label="فهمت">
+                    فهمت
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تسجيل الخروج -->
+    <div id="logoutModal" class="modal" style="display: none;" role="dialog" aria-labelledby="logoutTitle" aria-modal="true">
+        <div class="modal-content slide-in-right">
+            <div class="modal-header">
+                <h3 id="logoutTitle">تأكيد تسجيل الخروج</h3>
+                <button onclick="closeModal('logoutModal')" 
+                        class="modal-close"
+                        aria-label="إغلاق النافذة">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="logout-icon">🚪</div>
+                <p>هل أنت متأكد من أنك تريد تسجيل الخروج من ConnectHub؟</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('logoutModal')" 
+                        class="modal-btn secondary"
+                        aria-label="إلغاء">
+                    إلغاء
+                </button>
+                <button onclick="confirmLogout()" 
+                        class="modal-btn danger"
+                        aria-label="تسجيل الخروج">
+                    تسجيل الخروج
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- منطقة التعليقات الصوتية المحسنة -->
+    <div id="voiceRecordingModal" class="modal voice-modal" style="display: none;" role="dialog" aria-labelledby="voiceTitle" aria-modal="true">
+        <div class="modal-content voice-content">
+            <div class="modal-header">
+                <h3 id="voiceTitle">تعليق صوتي</h3>
+                <button onclick="closeVoiceRecording()" 
+                        class="modal-close"
+                        aria-label="إغلاق تسجيل الصوت">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="voice-recording-container">
+                <div class="voice-waveform-container">
+                    <canvas class="voice-waveform" width="300" height="50" aria-label="مؤشر الصوت"></canvas>
+                    <div class="waveform-instructions">اضغط مع الاستمرار للتسجيل</div>
+                </div>
+                
+                <div class="voice-controls">
+                    <button id="startRecordingBtn" 
+                            class="voice-btn record"
+                            aria-label="بدء التسجيل"
+                            aria-pressed="false">
+                        <i class="fas fa-microphone" aria-hidden="true"></i>
+                        <span>تسجيل</span>
+                    </button>
+                    
+                    <button id="stopRecordingBtn" 
+                            class="voice-btn stop"
+                            aria-label="إيقاف التسجيل"
+                            style="display: none;">
+                        <i class="fas fa-stop" aria-hidden="true"></i>
+                        <span>إيقاف</span>
+                    </button>
+                    
+                    <button id="playRecordingBtn" 
+                            class="voice-btn play"
+                            aria-label="تشغيل التسجيل"
+                            style="display: none;">
+                        <i class="fas fa-play" aria-hidden="true"></i>
+                        <span>تشغيل</span>
+                    </button>
+                    
+                    <button id="deleteRecordingBtn" 
+                            class="voice-btn delete"
+                            aria-label="حذف التسجيل"
+                            style="display: none;">
+                        <i class="fas fa-trash" aria-hidden="true"></i>
+                        <span>حذف</span>
+                    </button>
+                </div>
+                
+                <div class="recording-timer">
+                    <span id="recordingTime">00:00</span>
+                    <div class="recording-limit">الحد الأقصى: 60 ثانية</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قائمة المستخدم -->
+    <div id="userMenuModal" class="modal user-menu" style="display: none;" role="dialog" aria-labelledby="userMenuTitle" aria-modal="true">
+        <div class="modal-content user-menu-content">
+            <div class="user-info">
+                <img src="https://via.placeholder.com/60x60" 
+                     alt="الصورة الشخصية" 
+                     id="userMenuAvatar"
+                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 24 24\'%3E%3Cpath fill=\'%23667eea\' d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/%3E%3C/svg%3E'">
+                <div class="user-details">
+                    <h4 id="userMenuName">اسم المستخدم</h4>
+                    <p id="userMenuEmail">user@example.com</p>
+                </div>
+            </div>
+            
+            <div class="user-menu-items">
+                <button onclick="showUserProfile()" 
+                        class="user-menu-item"
+                        aria-label="عرض الملف الشخصي">
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <span data-translate="view_profile">عرض الملف الشخصي</span>
+                </button>
+                
+                <button onclick="showSettings()" 
+                        class="user-menu-item"
+                        aria-label="الإعدادات">
+                    <i class="fas fa-cog" aria-hidden="true"></i>
+                    <span data-translate="settings">الإعدادات</span>
+                </button>
+                
+                <button onclick="showKeyboardShortcuts()" 
+                        class="user-menu-item"
+                        aria-label="اختصارات لوحة المفاتيح">
+                    <i class="fas fa-keyboard" aria-hidden="true"></i>
+                    <span>اختصارات لوحة المفاتيح</span>
+                </button>
+                
+                <button onclick="showHelp()" 
+                        class="user-menu-item"
+                        aria-label="المساعدة والدعم">
+                    <i class="fas fa-question-circle" aria-hidden="true"></i>
+                    <span>المساعدة والدعم</span>
+                </button>
+                
+                <hr class="menu-divider">
+                
+                <button onclick="showLogoutConfirm()" 
+                        class="user-menu-item logout"
+                        aria-label="تسجيل الخروج">
+                    <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                    <span data-translate="logout">تسجيل الخروج</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- تحسينات إضافية للأداء -->
+    <script>
+        // تحسين تحميل الصفحة
+        window.addEventListener('load', function() {
+            // إخفاء مؤشر التحميل
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            if (loadingIndicator) {
+                loadingIndicator.style.opacity = '0';
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 300);
+            }
+            
+            // تشغيل التحسينات
+            if (window.connectHubEnhancer) {
+                window.connectHubEnhancer.initializeEnhancements();
+            }
+        });
+
+        // تحسين معالجة الأخطاء
+        window.addEventListener('error', function(e) {
+            console.error('خطأ في التطبيق:', e.error);
+            // يمكن إضافة إرسال الأخطاء للخادم هنا
+        });
+
+        // تحسين معالجة الـ Promise rejections
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Promise rejection غير معالجة:', e.reason);
+            e.preventDefault();
+        });
+    </script>
+
+    <!-- JavaScript المحسن -->
+    <script src="enhanced-features.js"></script>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- تحسينات إضافية -->
+    <script>
+        // تحسين الأداء للصفحات الطويلة
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+                // تحميل البيانات غير الحرجة في وقت الفراغ
+                loadNonCriticalData();
+            });
+        }
+
+        function loadNonCriticalData() {
+            // تحميل البيانات غير الحرجة
+            preloadImages();
+            preloadFonts();
+        }
+
+        function preloadImages() {
+            const images = document.querySelectorAll('img[src^="https://via.placeholder"]');
+            images.forEach(img => {
+                const preloadImg = new Image();
+                preloadImg.src = img.src;
+            });
+        }
+
+        function preloadFonts() {
+            // تحميل الخطوط مسبقاً
+            const fontUrls = [
+                'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
+            ];
+            
+            fontUrls.forEach(url => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'style';
+                link.href = url;
+                document.head.appendChild(link);
+            });
+        }
+
+        // تحسين الذاكرة
+        function optimizeMemory() {
+            // تنظيف الصور غير المستخدمة
+            const unusedImages = document.querySelectorAll('img:not([src*="data:"])');
+            unusedImages.forEach(img => {
+                if (img.complete && img.naturalWidth > 0) {
+                    // الصورة محملة، لا حاجة لتنظيف
+                } else {
+                    // إزالة الصورة الفارغة
+                    img.remove();
+                }
+            });
+        }
+
+        // تشغيل تحسين الذاكرة كل 5 دقائق
+        setInterval(optimizeMemory, 300000);
+    </script>
+</body>
+</html>
